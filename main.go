@@ -4,14 +4,9 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/Hamidspirit/web-scraper/commands"
 	_ "modernc.org/sqlite"
 )
-
-// Data structure for scraped items
-type ScrapedItem struct {
-	ID   int    `json:"id,omitempty"`
-	Text string `json:"text"`
-}
 
 func main() {
 	if len(os.Args) < 2 {
@@ -24,9 +19,9 @@ func main() {
 
 	switch command {
 	case "scrape":
-		ScrapeCommand(os.Args[2:])
+		commands.ScrapeCommand(os.Args[2:])
 	case "fetch":
-		FetchCommand(os.Args[2:])
+		commands.FetchCommand(os.Args[2:])
 	default:
 		fmt.Println("Unknown command:", command)
 		os.Exit(1)

@@ -1,4 +1,4 @@
-package main
+package commands
 
 import (
 	"database/sql"
@@ -7,6 +7,8 @@ import (
 	"log"
 	"strconv"
 	"strings"
+
+	"github.com/Hamidspirit/web-scraper/utils"
 )
 
 // scrape command handles scraping and storing data to database
@@ -45,8 +47,8 @@ func ScrapeCommand(args []string) {
 			pageURL += "page/" + strconv.Itoa(i) + "/"
 		}
 		fmt.Println("Scraping: ", pageURL)
-		items := ScrapePage(pageURL, *selector)
-		StoreItems(db, items)
+		items := utils.ScrapePage(pageURL, *selector)
+		utils.StoreItems(db, items)
 	}
 	fmt.Println("Scraping Complete.")
 }

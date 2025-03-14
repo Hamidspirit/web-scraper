@@ -1,4 +1,4 @@
-package main
+package commands
 
 import (
 	"database/sql"
@@ -8,6 +8,8 @@ import (
 	"log"
 	"os"
 	"strings"
+
+	"github.com/Hamidspirit/web-scraper/utils"
 )
 
 // FetchCommand retrieves data from the database and outputs it in the desired format.
@@ -25,7 +27,7 @@ func FetchCommand(args []string) {
 	}
 	defer db.Close()
 
-	items, err := FetchItems(db)
+	items, err := utils.FetchItems(db)
 	if err != nil {
 		log.Fatal("Failed to fetch data: ", err)
 	}
