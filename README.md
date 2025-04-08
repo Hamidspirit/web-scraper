@@ -2,6 +2,7 @@
 A command-line tool written in Go for scraping website content, storing it in an SQLite database, and exporting it in different formats.
 
 This is a CLI web-scraper written for my personal use.
+I have also wrote another one in python [here](https://github.com/Hamidspirit/Scrape-that-Data)
 
 
 ## Features
